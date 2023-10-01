@@ -84,10 +84,10 @@ def deleteProduct():
 
 
 def addAdmin():
-    print("Input name: ", end="")
+    print("Введіть ім'я адміністратора: ", end="")
     global name
     name = input()
-    print("Input password: ", end="")
+    print("Введіть пароль адміністратора: ", end="")
     global password
     password = input()
 
@@ -113,9 +113,6 @@ def availableProducts():
 
 
 def createTables():
-    # print("Введите название таблицы:", end=" ")
-    # nameTable = input()
-
     cursor.execute(
         f"""CREATE TABLE products (
         name_product text,
@@ -129,7 +126,7 @@ def createTables():
 
     cursor.execute(
         f"""CREATE TABLE admins (
-        name_product text,
+        name text,
         password text
     )
 """
@@ -140,7 +137,7 @@ def createTables():
 
 
 def logoutwindow():
-    login(items)
+    login(itemsMassive)
 
 
 def exit():
@@ -297,11 +294,18 @@ def userChoiceOptions():
 
 def login(items):
     print(
-        "Зайти як Адміністратор (Введіть A)\nЗайти як Адміністратор (Введіть U)\nВідповідь: ",
+        "Зайти як Адміністратор (Введіть A)\nЗайти як Користувач (Введіть U)\nВідповідь: ",
         end="",
     )
     tp = input()
-    if tp == "A" or tp == "a" or tp == "Admin" or tp == "admin" or tp == "А" or tp == "а":
+    if (
+        tp == "A"
+        or tp == "a"
+        or tp == "Admin"
+        or tp == "admin"
+        or tp == "А"
+        or tp == "а"
+    ):
         # print(f"Accounts: {itemsMassive}")
         print("Введіть логін: ", end="")
         login = input()
